@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &698208635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991057892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9766053, y: 0.25663254, z: 0.035644524}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579d6f376f3def344a5aeca44723043e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testObstacle: {fileID: 0}
+  testObstacle: {fileID: 5004353791241268495, guid: d0f0b0602b5476941812c4835cc4267d, type: 3}
   score: 0
   startTime: 0
   gameActive: 0
