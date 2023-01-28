@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class obstacleScript : MonoBehaviour
+public class MovingObstacle : MonoBehaviour
 {
     public float movespeed;
     public float cheight;
@@ -16,11 +16,11 @@ public class obstacleScript : MonoBehaviour
         Camera cam = Camera.main;
         cheight = 2f * cam.orthographicSize;
         cwidth = cheight * cam.aspect;
-        camPos = Camera.main.transform.position;
+        camPos = cam.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(new Vector3(-1f * movespeed * Time.deltaTime, 0, 0));
         if(transform.position.x < camPos.x - 1.5 * cwidth)

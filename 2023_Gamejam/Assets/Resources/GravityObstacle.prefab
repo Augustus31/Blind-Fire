@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8569956432914209430}
   - component: {fileID: 1308597838628026356}
-  - component: {fileID: -5239112419242944115}
   - component: {fileID: 1629304204596708244}
   - component: {fileID: 4766769694485577820}
-  - component: {fileID: 3440460857040828393}
+  - component: {fileID: -5239112419242944115}
+  - component: {fileID: -1674027369468721445}
+  - component: {fileID: -8552659104189638233}
   m_Layer: 0
-  m_Name: exampleObstacle
+  m_Name: GravityObstacle
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7735849, g: 0.22915626, b: 0.22915626, a: 1}
+  m_Color: {r: 1, g: 0.7194255, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5239112419242944115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5004353791241268495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc36acdf8f2a8f246ae8815016ddad14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movespeed: 0
-  cheight: 0
-  cwidth: 0
-  camPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1629304204596708244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,7 +136,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3440460857040828393
+--- !u!114 &-5239112419242944115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004353791241268495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc36acdf8f2a8f246ae8815016ddad14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movespeed: 0
+  cheight: 0
+  cwidth: 0
+  camPos: {x: 0, y: 0, z: 0}
+--- !u!114 &-1674027369468721445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004353791241268495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f2a8d3d10c19c42b09923a4778ed8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
+  gravityRandomizer: 2
+  velocityMultiplier: 1
+  terminalVelocity: 1
+  velocityY: 0
+--- !u!114 &-8552659104189638233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,5 +181,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ae142dffe7c416086c74682459a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawn: 1
-  chanceToSpawn: 0.5
+  timeToSpawn: 5
+  chanceToSpawn: 1

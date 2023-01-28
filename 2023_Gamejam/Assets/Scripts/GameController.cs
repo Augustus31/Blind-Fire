@@ -5,13 +5,15 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject testObstacle;
+    public List<ObstacleAttributes> obstacles;
     public float score;
     public float startTime;
     public bool gameActive;
     public float cheight;
     public float cwidth;
     public Vector3 camPos;
-    public float spawnClock;
+    public float spawnClock = 1;
+    public float spawnOffset = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,10 @@ public class GameController : MonoBehaviour
         score = 0;
         startTime = Time.time;
         gameActive = true;
-        spawnClock = 1;
-        StartCoroutine(spawnObstacles());
+        foreach (ObstacleAttributes obstacle in obstacles)
+        {
+            StartCoroutine(spawnObstacles(obstacle.gameObject, obstacle.timeToSpawn, obstacle.chanceToSpawn));
+        }
     }
 
     // Update is called once per frame
@@ -34,20 +38,21 @@ public class GameController : MonoBehaviour
         //add some score function based on time passed
         //update obstacle spawn clock to be shorter as time goes on
 
-        
+
     }
 
-    public IEnumerator spawnObstacles()
+    public IEnumerator spawnObstacles(GameObject obstacle, float spawnTime, float spawnChance)
     {
         while (gameActive)
         {
-            float random = Random.value;
-            if (random > 0.5f)
+            float randomIfSpawn = Random.value;
+            float randomY = Random.value * cheight - (cheight / 2);
+            if (randomIfSpawn < spawnChance)
             {
-                //this is very basic, obviously we will need a y-component to the random spawn
-                Instantiate(testObstacle, new Vector3(camPos.x + cwidth, 0, 0), Quaternion.identity);
+
+                Instantiate(obstacle, new Vector3(camPos.x + cwidth / 2 + spawnOffset, randomY, 0), Quaternion.identity);
             }
-            yield return new WaitForSeconds(spawnClock);
+            yield return new WaitForSeconds(spawnTime + (Random.value * 0.5f - 0.25f));
         }
     }
 }

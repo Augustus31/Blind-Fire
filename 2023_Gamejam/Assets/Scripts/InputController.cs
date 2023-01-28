@@ -22,8 +22,7 @@ public class InputController : MonoBehaviour
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane;
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
-        this.transform.position = new Vector3(0, worldPosition.y, 0);
+        this.transform.position = new Vector3(worldPosition.x, worldPosition.y, this.transform.position.z);
     }
 }
