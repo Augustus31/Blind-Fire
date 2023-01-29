@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeTime: 0
-  speed: 0.25
-  explodeRadius: 0
+  moveSpeed: 10
+  explodeSpeed: 5
+  explodeScale: 2.5
 --- !u!114 &-5131425812034635313
 MonoBehaviour:
   m_ObjectHideFlags: 0

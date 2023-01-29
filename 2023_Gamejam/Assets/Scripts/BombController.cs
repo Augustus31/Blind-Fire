@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour
 {
-    public float explodeTime;
-    public float speed;
-    public float explodeRadius;
+    public float explodeTime = 2;
+    public float moveSpeed = 1;
+    public float explodeSpeed;
+    public float explodeScale = 2;
 
     private Vector3 explodeLocation;
     private Vector3 startingLocation;
+    private Vector3 moveDirection;
 
-    private float t = 0;
+    private float tExplode = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,20 +25,29 @@ public class BombController : MonoBehaviour
         explodeLocation = new Vector3(Random.value * cwidth/2 - (cwidth/2), Random.value * cheight - (cheight / 2), this.transform.position.z);
         // set spawn location
         startingLocation = new Vector3(cwidth / 2 + 2, Random.value * cheight - (cheight / 2), this.transform.position.z);
+        moveDirection = (explodeLocation - startingLocation).normalized;
         this.transform.position = startingLocation;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.transform.position = Vector3.Lerp(startingLocation, explodeLocation, t);
-        if (t < 1)
-        {
-            t += speed * Time.deltaTime;
+        Vector3 newMoveVector = moveDirection * moveSpeed * Time.deltaTime;
+        if ((explodeLocation - this.transform.position).magnitude < newMoveVector.magnitude) {
+            this.transform.position = explodeLocation;
+            // Not sure if using scale is the best way to simulate explosion
+            Debug.Log("EXPLODE");
+            float scale = Mathf.Lerp(1, explodeScale, tExplode);
+            tExplode += explodeSpeed * Time.deltaTime;
+            this.transform.localScale = new Vector3(scale, scale, scale);
+            // Destroys the bomb when it finish expanding
+            if (tExplode > 1)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
         } else
         {
-            Debug.Log("EXPLODE");
-            GameObject.Destroy(this.gameObject);
+            this.transform.position += newMoveVector;
         }
     }
 }
