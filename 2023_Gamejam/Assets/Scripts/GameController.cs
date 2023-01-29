@@ -55,4 +55,10 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(spawnTime + (Random.value * 0.5f - 0.25f));
         }
     }
+
+    public void Gameover()
+    {
+        gameActive = false;
+        Time.timeScale = 0;
+    }
 }
