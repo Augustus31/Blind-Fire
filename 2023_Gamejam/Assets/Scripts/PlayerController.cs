@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameController gameController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "obstacle")
         {
             Debug.Log("Collision detected!");
+            // TODO: only trigger when life is depleted
+            gameController.gameOver();
         }
     }
 }
