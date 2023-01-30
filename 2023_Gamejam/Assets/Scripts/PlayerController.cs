@@ -61,25 +61,29 @@ public class PlayerController : MonoBehaviour
             damageIndicator.SetTrigger("takeDamage");
 
             if (lives > 1)
-            {
-                if(lives == 3)
-                {
-                    heart1.GetComponent<Image>().enabled = false;
-                }
-                else if (lives == 2)
-                {
-                    heart2.GetComponent<Image>().enabled = false;
-                }
                 lives--;
-            }
-            else
+
+            updateHealthGraphic();
+            if(lives <= 0)
             {
-                heart3.GetComponent<Image>().enabled = false;
-                lives = 0;
-                Debug.Log("Collision detected!");
                 // TODO: only trigger when life is depleted
                 gameController.gameOver();
-            }  
+            }
         }
+    }
+    void updateHealthGraphic()
+    {
+        heart1.GetComponent<Image>().enabled = lives >= 3;
+        heart2.GetComponent<Image>().enabled = lives >= 2;
+        heart3.GetComponent<Image>().enabled = lives >= 1;
+
+    }
+    // Heal by 1, return true if sucessfuly increased hp
+    public bool heal()
+    {
+        if (lives >= 3) return false;
+        lives++;
+        updateHealthGraphic();
+        return true;
     }
 }

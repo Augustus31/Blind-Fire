@@ -36,7 +36,7 @@ public class MovingObstacle : MonoBehaviour
         {
             scoreContribution = true;
             controllerScript.score += 1;
-            Debug.Log("score raised");
+            //Debug.Log("score raised");
 
         }
     }
