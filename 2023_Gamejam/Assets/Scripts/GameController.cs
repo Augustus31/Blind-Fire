@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class GameController : MonoBehaviour
     public Vector3 camPos;
     public float spawnClock = 1;
     public float spawnOffset = 2;
+
+    public UIController uiController;
 
     // Start is called before the first frame update
     void Start()
@@ -56,9 +60,16 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void Gameover()
+    public void gameOver()
     {
         gameActive = false;
         Time.timeScale = 0;
+        uiController.gameOver();
+    }
+
+    public void restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("GameScene");
     }
 }
