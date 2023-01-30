@@ -58,8 +58,8 @@ public class GameController : MonoBehaviour
         {
             float x = score;
             // change these formulas to balance difficulty
-            float newSpawnTime = (spawnTime / 2) / (0.5f * x + 1) + (spawnTime / 2);
-            float newSpawnChance = spawnChance * (x / (x + 1)) + spawnChance;
+            float newSpawnTime = (spawnTime / 5) / (0.5f * x + 1) + (spawnTime * 0.8f);
+            float newSpawnChance = spawnChance * ((x-6) / (x + 10)) + spawnChance;
             Debug.Log(newSpawnTime);
 
             float randomIfSpawn = Random.value;
@@ -81,14 +81,14 @@ public class GameController : MonoBehaviour
             float spawnHealOdds = 0;
             if(health == 1)
             {
-                spawnHealOdds = 0.15f;
+                spawnHealOdds = 0.1f * (score)/50f;
             }else if(health == 2)
             {
-                spawnHealOdds = 0.09f;
+                spawnHealOdds = 0.05f * (score) / 50f;
             }
 
             int numObstacles = GameObject.FindGameObjectsWithTag("obstacle").Length;
-            float spawnNukeOdds = (1f - 1f / (numObstacles * 0.2f + 1f)) * 0.2f;
+            float spawnNukeOdds = (1f - 1f / (numObstacles * 0.2f + 1f)) * 0.2f * score/35f;
 
             bool spawnHeal = Random.value < spawnHealOdds; 
             bool spawnNuke = Random.value < spawnNukeOdds;
