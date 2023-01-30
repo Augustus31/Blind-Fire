@@ -56,14 +56,19 @@ public class GameController : MonoBehaviour
     {
         while (gameActive)
         {
+            float x = score;
+            // change these formulas to balance difficulty
+            float newSpawnTime = (spawnTime / 2) / (0.5f * x + 1) + (spawnTime / 2);
+            float newSpawnChance = spawnChance * (x / (x + 1)) + spawnChance;
+            Debug.Log(newSpawnTime);
+
             float randomIfSpawn = Random.value;
             float randomY = Random.value * cheight - (cheight / 2);
-            if (randomIfSpawn < spawnChance)
+            if (randomIfSpawn < newSpawnChance)
             {
-
                 Instantiate(obstacle, new Vector3(camPos.x + cwidth / 2 + spawnOffset, randomY, 0), Quaternion.identity);
             }
-            yield return new WaitForSeconds(spawnTime + (Random.value * 0.5f - 0.25f));
+            yield return new WaitForSeconds(newSpawnTime + (Random.value * 0.5f - 0.25f));
         }
     }
 
