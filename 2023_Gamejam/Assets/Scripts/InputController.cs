@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    public bool disabled = false;
     private Camera mainCamera;
 
     // this contains the only sky line that should be on screen. Used for playerController
@@ -21,8 +22,11 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
-        this.transform.position = new Vector3(worldPosition.x, worldPosition.y, this.transform.position.z);
+        if (!disabled)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
+            this.transform.position = new Vector3(worldPosition.x, worldPosition.y, this.transform.position.z);
+        }
     }
 }

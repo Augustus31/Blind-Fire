@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public float spawnOffset = 2;
 
     public UIController uiController;
+    public InputController inputController;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,7 @@ public class GameController : MonoBehaviour
     {
         gameActive = false;
         Time.timeScale = 0;
+        inputController.disabled = true;
         uiController.gameOver();
     }
 
@@ -71,5 +73,13 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void quitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
     }
 }
