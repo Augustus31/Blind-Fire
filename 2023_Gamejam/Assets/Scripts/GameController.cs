@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
 {
     public GameObject testObstacle;
     public List<ObstacleAttributes> obstacles;
+
+    public GameObject pickupObject;
+
     public float score;
     public float startTime;
     public bool gameActive;
@@ -19,6 +22,7 @@ public class GameController : MonoBehaviour
 
     public UIController uiController;
     public InputController inputController;
+    public PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,7 @@ public class GameController : MonoBehaviour
         {
             StartCoroutine(spawnObstacles(obstacle.gameObject, obstacle.timeToSpawn, obstacle.chanceToSpawn));
         }
+        StartCoroutine(spawnPickups());
     }
 
     // Update is called once per frame
@@ -59,6 +64,48 @@ public class GameController : MonoBehaviour
                 Instantiate(obstacle, new Vector3(camPos.x + cwidth / 2 + spawnOffset, randomY, 0), Quaternion.identity);
             }
             yield return new WaitForSeconds(spawnTime + (Random.value * 0.5f - 0.25f));
+        }
+    }
+
+    public IEnumerator spawnPickups()
+    {
+        while (gameActive)
+        {
+            Debug.Log("Try spawn pickup");
+            int health = playerController.lives;
+            float spawnHealOdds = 0;
+            if(health == 1)
+            {
+                spawnHealOdds = 0.15f;
+            }else if(health == 2)
+            {
+                spawnHealOdds = 0.09f;
+            }
+
+            int numObstacles = GameObject.FindGameObjectsWithTag("obstacle").Length;
+            float spawnNukeOdds = (1f - 1f / (numObstacles * 0.2f + 1f)) * 0.2f;
+
+            bool spawnHeal = Random.value < spawnHealOdds; 
+            bool spawnNuke = Random.value < spawnNukeOdds;
+            bool spawnPickup = spawnHeal || spawnNuke;
+            Pickup.PickupType pickupType = Pickup.PickupType.Health;
+            if (spawnHeal)
+            {
+                pickupType = Pickup.PickupType.Health;
+            }
+            else if (spawnNuke)
+            {
+                pickupType = Pickup.PickupType.Nuke;
+            }
+
+            Debug.Log("Spawning?" + spawnHealOdds + " " + spawnNukeOdds);
+            if (spawnPickup)
+            {
+                Debug.Log("Spawning " + pickupType);
+                GameObject pickup = Instantiate(pickupObject);
+                pickup.GetComponent<Pickup>()?.setType(pickupType); 
+            }
+            yield return new WaitForSeconds(3f);
         }
     }
 

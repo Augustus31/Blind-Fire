@@ -5,6 +5,7 @@ using UnityEngine;
 public class PetController : MonoBehaviour
 {
     public PlayerController playerController;
+    public GameObject bombObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,22 @@ public class PetController : MonoBehaviour
                 pickup.pickup();
                 if(pickup.pickupType == Pickup.PickupType.Health) { 
                     playerController.heal();
+                }
+                if (pickup.pickupType == Pickup.PickupType.Nuke)
+                {
+                    GameObject bomb = Instantiate(bombObject);
+                    BombController bc = bomb.GetComponent<BombController>();
+                    bc.seek(Vector3.zero);
+                    bc.explodeRadius = 100;
+                    bc.explodeScale = 15;
+                    try
+                    {
+                        collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                    catch
+                    {
+                        collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    }
                 }
             }
         }

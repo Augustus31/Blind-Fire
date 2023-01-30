@@ -32,8 +32,11 @@ public class BombController : MonoBehaviour
         Camera cam = Camera.main;
         float cheight = 2f * cam.orthographicSize;
         float cwidth = cheight * cam.aspect;
-        // pick a random position on screen to explode
-        explodeLocation = new Vector3(Random.value * cwidth/2 - (cwidth/2), Random.value * cheight - (cheight / 2), this.transform.position.z);
+        if(explodeLocation == null)
+        {
+            // pick a random position on screen to explode
+            explodeLocation = new Vector3(Random.value * cwidth/2 - (cwidth/2), Random.value * cheight - (cheight / 2), this.transform.position.z);
+        }
         // set spawn location
         startingLocation = new Vector3(cwidth / 2 + 2, Random.value * cheight - (cheight / 2), this.transform.position.z);
         moveDirection = (explodeLocation - startingLocation).normalized;
@@ -58,6 +61,12 @@ public class BombController : MonoBehaviour
         {
             Debug.LogError("Bomb is missing audio sources");
         }
+    }
+
+    public void seek(Vector3 location)
+    {
+        explodeLocation = location;
+        moveDirection = (explodeLocation - startingLocation).normalized;
     }
 
     // Update is called once per frame

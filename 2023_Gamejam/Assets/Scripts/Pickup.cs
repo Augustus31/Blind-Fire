@@ -35,19 +35,13 @@ public class Pickup : MonoBehaviour
     private Vector3 moveDirection;
 
     // Start is called before the first frame update
+    private SpriteRenderer spriteR;
     void Start()
     {
         animator = GetComponent<Animator>();
-        SpriteRenderer spriteR = GetComponent<SpriteRenderer>();
-        switch (pickupType)
-        {
-            case PickupType.Health:
-                spriteR.sprite = healthSprite;
-                break;
-            case PickupType.Nuke:
-                spriteR.sprite = nukeSprite;
-                break;
-        }
+        
+        spriteR = GetComponent<SpriteRenderer>();
+        setType(pickupType);
 
 
         targetLocation = getTargetLoc();
@@ -55,6 +49,23 @@ public class Pickup : MonoBehaviour
         startingLocation = getStartingLoc();
         moveDirection = (targetLocation - startingLocation).normalized;
         this.transform.position = startingLocation;
+    }
+    public void setType(PickupType pt)
+    {
+        pickupType = pt;
+        if (spriteR != null)
+        {
+            switch (pickupType)
+            {
+                case PickupType.Health:
+
+                    spriteR.sprite = healthSprite;
+                    break;
+                case PickupType.Nuke:
+                    spriteR.sprite = nukeSprite;
+                    break;
+            }
+        }
     }
     Vector3 getTargetLoc()
     {
@@ -68,7 +79,7 @@ public class Pickup : MonoBehaviour
         Camera cam = Camera.main;
         float cheight = 2f * cam.orthographicSize;
         float cwidth = cheight * cam.aspect;
-        return new Vector3(cwidth / 2 + 2, Random.value * cheight - (cheight / 2), this.transform.position.z);
+        return new Vector3(cwidth / 2 + 1, Random.value * cheight - (cheight / 2), this.transform.position.z);
     }
     public IEnumerator waitToLeave()
     {
