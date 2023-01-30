@@ -33,17 +33,19 @@ public class PetController : MonoBehaviour
                 {
                     GameObject bomb = Instantiate(bombObject);
                     BombController bc = bomb.GetComponent<BombController>();
-                    bc.seek(Vector3.zero);
+                    //bc.seek(Vector3.zero);
                     bc.explodeRadius = 100;
                     bc.explodeScale = 15;
                     try
                     {
-                        collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                        bomb.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     catch
                     {
-                        collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                        bomb.GetComponent<CircleCollider2D>().enabled = false;
                     }
+                    bc.explodeLocation = Vector3.zero;
+                    bomb.transform.position = bc.explodeLocation;
                 }
             }
         }

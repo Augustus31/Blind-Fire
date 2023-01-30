@@ -15,7 +15,7 @@ public class BombController : MonoBehaviour
     public AudioClip explodeSfx;
 
 
-    private Vector3 explodeLocation;
+    public Vector3 explodeLocation;
     private Vector3 startingLocation;
     private Vector3 moveDirection;
 
@@ -32,11 +32,8 @@ public class BombController : MonoBehaviour
         Camera cam = Camera.main;
         float cheight = 2f * cam.orthographicSize;
         float cwidth = cheight * cam.aspect;
-        if(explodeLocation == null)
-        {
-            // pick a random position on screen to explode
-            explodeLocation = new Vector3(Random.value * cwidth/2 - (cwidth/2), Random.value * cheight - (cheight / 2), this.transform.position.z);
-        }
+        // pick a random position on screen to explode
+        explodeLocation = new Vector3(Random.value * cwidth/4f - (cwidth/2f), Random.value * cheight - (cheight / 2f), this.transform.position.z);
         // set spawn location
         startingLocation = new Vector3(cwidth / 2 + 2, Random.value * cheight - (cheight / 2), this.transform.position.z);
         moveDirection = (explodeLocation - startingLocation).normalized;
