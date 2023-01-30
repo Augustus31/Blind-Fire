@@ -24,17 +24,18 @@ public class MovingObstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         transform.Translate(new Vector3(-1f * movespeed * Time.deltaTime, 0, 0));
         if(transform.position.x < camPos.x - 1.5 * cwidth)
         {
             GameObject.Destroy(this.gameObject);
         }
-        if((transform.position.x < GameObject.Find("Player").transform.position.x - 25) && !scoreContribution)
+        if((transform.position.x < GameObject.Find("Player").transform.position.x - 0.2) && !scoreContribution)
         {
             scoreContribution = true;
             controllerScript.score += 1;
+            Debug.Log("score raised");
 
         }
     }
