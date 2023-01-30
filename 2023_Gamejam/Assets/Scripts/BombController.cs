@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour
 {
-    public float explodeTime = 2;
     public float moveSpeed = 1;
     public float explodeSpeed;
     public float explodeScale = 2;
@@ -14,6 +13,8 @@ public class BombController : MonoBehaviour
     private Vector3 moveDirection;
 
     private float tExplode = 0;
+
+    private Animator bombAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class BombController : MonoBehaviour
         startingLocation = new Vector3(cwidth / 2 + 2, Random.value * cheight - (cheight / 2), this.transform.position.z);
         moveDirection = (explodeLocation - startingLocation).normalized;
         this.transform.position = startingLocation;
+
+        bombAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class BombController : MonoBehaviour
             this.transform.position = explodeLocation;
             // Not sure if using scale is the best way to simulate explosion
             Debug.Log("EXPLODE");
+            bombAnimator.SetTrigger("explode");
             float scale = Mathf.Lerp(1, explodeScale, tExplode);
             tExplode += explodeSpeed * Time.deltaTime;
             this.transform.localScale = new Vector3(scale, scale, scale);

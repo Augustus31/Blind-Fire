@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 955807094212505203}
   - component: {fileID: 955807094212505205}
   - component: {fileID: -5131425812034635313}
+  - component: {fileID: -5051743294496467308}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2101722364, guid: 7e118934a9f02d04585edc1e3f7bc2b7, type: 3}
+  m_Sprite: {fileID: -641971560, guid: 7adbe97b6985142a58afcb83befde67a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.485804, y: 1.4399999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -116,3 +117,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToSpawn: 5
   chanceToSpawn: 0.75
+--- !u!95 &-5051743294496467308
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955807094212505200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ad601ee36c044812895c46a5e9ccb06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

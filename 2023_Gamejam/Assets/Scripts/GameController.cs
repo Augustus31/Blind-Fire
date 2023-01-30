@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         Camera cam = Camera.main;
         cheight = 2f * cam.orthographicSize;
         cwidth = cheight * cam.aspect;

@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 1629304204596708244}
   - component: {fileID: 4766769694485577820}
   - component: {fileID: 3440460857040828393}
+  - component: {fileID: -1152425398075270483}
   m_Layer: 0
-  m_Name: exampleObstacle
+  m_Name: spikeballObstacle
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,8 +121,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
+    pivot: {x: 0.46004567, y: 0.50951296}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -165,3 +166,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToSpawn: 1
   chanceToSpawn: 0.5
+--- !u!95 &-1152425398075270483
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004353791241268495}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f83342acf85845f78dd228d5dc18930, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

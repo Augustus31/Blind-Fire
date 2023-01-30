@@ -22,7 +22,8 @@ public class MovingObstacle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(-1f * movespeed * Time.deltaTime, 0, 0));
+        //transform.Translate(new Vector3(-1f * movespeed * Time.deltaTime, 0, 0));
+        transform.position = new Vector3(this.transform.position.x - movespeed * Time.deltaTime, this.transform.position.y, 0);
         if(transform.position.x < camPos.x - 1.5 * cwidth)
         {
             GameObject.Destroy(this.gameObject);
