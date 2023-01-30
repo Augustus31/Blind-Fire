@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5051743294496467308}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,8 @@ MonoBehaviour:
 --- !u!95 &-5051743294496467308
 Animator:
   serializedVersion: 5
+--- !u!58 &2277847356767757779
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,3 +139,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.076010145, y: -0.17408751}
+  serializedVersion: 2
+  m_Radius: 0.50934106
