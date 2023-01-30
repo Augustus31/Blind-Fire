@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour
         Time.timeScale = 0;
         inputController.disabled = true;
         uiController.gameOver();
+        Cursor.visible = true;
     }
 
     public void restart()
