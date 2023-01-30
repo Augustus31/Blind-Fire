@@ -60,8 +60,9 @@ public class PlayerController : MonoBehaviour
 
             damageIndicator.SetTrigger("takeDamage");
 
-            if (lives > 1)
+            if (lives >= 1) {
                 lives--;
+            }
 
             updateHealthGraphic();
             if(lives <= 0)
