@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
 
+    [SerializeField]
+    public AudioClip hurtSfx;
+
+    [HideInInspector]
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +24,13 @@ public class PlayerController : MonoBehaviour
         heart1 = GameObject.Find("heart1");
         heart2 = GameObject.Find("heart2");
         heart3 = GameObject.Find("heart3");
+        audioSource = GetComponent<AudioSource>();
+        if(audioSource != null)
+        {
+            audioSource.clip = hurtSfx;
+        }else{
+            Debug.LogError("Player is missing audio source component.");
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +51,10 @@ public class PlayerController : MonoBehaviour
             {
                 collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
             }
+
+            // Play hurt sfx
+            audioSource.Play();
+
             if (lives > 1)
             {
                 if(lives == 3)
