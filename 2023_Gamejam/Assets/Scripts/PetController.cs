@@ -5,7 +5,7 @@ using UnityEngine;
 public class PetController : MonoBehaviour
 {
     public PlayerController playerController;
-    public GameObject bombObject;
+    public GameObject nukeObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +31,10 @@ public class PetController : MonoBehaviour
                 }
                 if (pickup.pickupType == Pickup.PickupType.Nuke)
                 {
-                    GameObject bomb = Instantiate(bombObject);
-                    BombController bc = bomb.GetComponent<BombController>();
-                    //bc.seek(Vector3.zero);
+                    GameObject nuke = Instantiate(nukeObject);
+                    nuke.transform.position = new Vector3(0, 0, -1);
+                    nuke.GetComponent<Nuke>().Explode();
+                    /*BombController bc = bomb.GetComponent<BombController>();
                     bc.explodeRadius = 100;
                     bc.explodeScale = 15;
                     try
@@ -44,8 +45,7 @@ public class PetController : MonoBehaviour
                     {
                         bomb.GetComponent<CircleCollider2D>().enabled = false;
                     }
-                    bc.explodeLocation = Vector3.zero;
-                    bomb.transform.position = bc.explodeLocation;
+                    bc.explodeLocation = new Vector3(0, 0, -1);*/
                 }
             }
         }
