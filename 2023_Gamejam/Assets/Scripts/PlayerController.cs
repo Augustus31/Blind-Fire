@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public AudioSource audioSource;
 
+    private Animator damageIndicator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         heart1 = GameObject.Find("heart1");
         heart2 = GameObject.Find("heart2");
         heart3 = GameObject.Find("heart3");
+        damageIndicator = GameObject.Find("DamageIndicator").GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         if(audioSource != null)
         {
@@ -55,8 +58,12 @@ public class PlayerController : MonoBehaviour
             // Play hurt sfx
             audioSource.Play();
 
+            damageIndicator.SetTrigger("takeDamage");
 
-            lives--;
+            if (lives >= 1) {
+                lives--;
+            }
+
             updateHealthGraphic();
             if(lives <= 0)
             {
