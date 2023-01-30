@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     public bool disabled = false;
+    public GameController gameController;
     private Camera mainCamera;
 
     // this contains the only sky line that should be on screen. Used for playerController
@@ -26,6 +27,8 @@ public class InputController : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
+            worldPosition.x = Mathf.Clamp(worldPosition.x, -gameController.cwidth / 2, gameController.cwidth / 2);
+            worldPosition.y = Mathf.Clamp(worldPosition.y, -gameController.cheight / 2, gameController.cheight / 2);
             this.transform.position = new Vector3(worldPosition.x, worldPosition.y, this.transform.position.z);
         }
     }
