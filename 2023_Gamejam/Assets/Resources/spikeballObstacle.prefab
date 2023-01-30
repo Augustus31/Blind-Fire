@@ -105,6 +105,8 @@ MonoBehaviour:
   cheight: 0
   cwidth: 0
   camPos: {x: 0, y: 0, z: 0}
+  scoreContribution: 0
+  controllerScript: {fileID: 0}
 --- !u!61 &1629304204596708244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ae142dffe7c416086c74682459a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawn: 1
+  timeToSpawn: 2
   chanceToSpawn: 0.5
 --- !u!95 &-1152425398075270483
 Animator:
