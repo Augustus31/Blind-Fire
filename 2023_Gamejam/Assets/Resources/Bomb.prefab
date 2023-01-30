@@ -105,6 +105,7 @@ MonoBehaviour:
   moveSpeed: 10
   explodeSpeed: 3
   explodeScale: 2.5
+  explodeRadius: 3
   fuzeVolume: 0.2
   fuzeSfx: {fileID: 8300000, guid: 559b6c9ae409acf4db199a387ca40df7, type: 3}
   explodeSfx: {fileID: 8300000, guid: d9bd7ffbf0ddce048a258b46e739a39c, type: 3}

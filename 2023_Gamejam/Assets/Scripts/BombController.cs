@@ -8,6 +8,8 @@ public class BombController : MonoBehaviour
     public float explodeSpeed;
     public float explodeScale = 2;
 
+    public float explodeRadius = 2;
+
     public float fuzeVolume = 0.5f;
     public AudioClip fuzeSfx;
     public AudioClip explodeSfx;
@@ -67,14 +69,28 @@ public class BombController : MonoBehaviour
         Vector3 newMoveVector = moveDirection * moveSpeed * Time.deltaTime;
         if ((explodeLocation - this.transform.position).magnitude < newMoveVector.magnitude) {
             // Explosion -> turn off fuze sound, play explode sound
-            if(tExplode == 0) { 
+            if(tExplode == 0) {
+                ObstacleAttributes[] obstacles = (ObstacleAttributes[]) GameObject.FindObjectsOfType(typeof(ObstacleAttributes));
+                Debug.Log(obstacles.Length + " obstacles");
+                foreach (ObstacleAttributes obstacle in obstacles)
+                {
+                    if (obstacle.gameObject == this.gameObject) continue;
+                    Vector3 obstaclePos = obstacle.gameObject.transform.position;
+                    float dist = Vector3.Distance(obstaclePos, this.gameObject.transform.position);
+                    Debug.Log(dist + " far away from " + obstacle.name);
+                    if (dist < explodeRadius)
+                    {
+                        Destroy(obstacle.gameObject);
+                    }
+                }
+
                 fuzeSource.Stop();
                 explodeSource.Play();
             }
 
             this.transform.position = explodeLocation;
             // Not sure if using scale is the best way to simulate explosion
-            Debug.Log("EXPLODE");
+            //Debug.Log("EXPLODE");
             bombAnimator.SetTrigger("explode");
             float scale = Mathf.Lerp(1, explodeScale, tExplode);
             tExplode += explodeSpeed * Time.deltaTime;
