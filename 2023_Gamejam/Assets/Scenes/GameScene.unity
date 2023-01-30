@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48d17946877b384f91f176aaeb96fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabled: 0
 --- !u!1 &403625393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -100.00005}
+  m_AnchoredPosition: {x: -100, y: -100.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037938319
@@ -1552,12 +1553,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e8d59e6867343ac9742bd2d59a139a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 1991057894}
 --- !u!95 &1074631847
 Animator:
   serializedVersion: 5
-  gameController: {fileID: 1991057894}
---- !u!1 &1079350849
-GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1575,6 +1574,12 @@ GameObject:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &1079350849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079350850}
@@ -2195,6 +2200,7 @@ MonoBehaviour:
   spawnClock: 1
   spawnOffset: 2
   uiController: {fileID: 1351061359}
+  inputController: {fileID: 378644631}
 --- !u!1 &2118396425
 GameObject:
   m_ObjectHideFlags: 0

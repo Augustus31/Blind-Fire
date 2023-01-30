@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 955807094212505205}
   - component: {fileID: -5131425812034635313}
   - component: {fileID: -5051743294496467308}
+  - component: {fileID: 2277847356767757779}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: obstacle
@@ -99,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad30c51bd6b714450991b4db2439b114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeTime: 0
   moveSpeed: 10
   explodeSpeed: 5
   explodeScale: 2.5
@@ -120,8 +120,6 @@ MonoBehaviour:
 --- !u!95 &-5051743294496467308
 Animator:
   serializedVersion: 5
---- !u!58 &2277847356767757779
-CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,6 +137,14 @@ CircleCollider2D:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!58 &2277847356767757779
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955807094212505200}
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
