@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -955,7 +955,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bomb_21: -581949143
+      bomb_20: 707439244
       bomb_17: -899074126
       bomb_25: -1954567775
       bomb_19: -22876526
@@ -994,7 +994,7 @@ TextureImporter:
       bomb_28: 1222601535
       bomb_31: 2016854203
       bomb_33: 536807507
-      bomb_20: 707439244
+      bomb_21: -581949143
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

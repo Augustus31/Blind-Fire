@@ -48,6 +48,8 @@ public class BombController : MonoBehaviour
             fuzeSource.loop = true;
             fuzeSource.clip = fuzeSfx;
             fuzeSource.volume = fuzeVolume;
+            //Start the fuze sound on spawn
+            fuzeSource.Play();
 
             explodeSource = audioSources[1];
             explodeSource.clip = explodeSfx;
@@ -61,23 +63,23 @@ public class BombController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(fuzeSource != null && !fuzeSource.isPlaying)
+        // Stop the sounds when time stopped (TODO: FIX CRAPPY SOLUTION) 
+        if(Time.timeScale < 0.2)
         {
-            //Start the fuze sound on spawn
-            fuzeSource.Play();
+            fuzeSource.Stop();
         }
         Vector3 newMoveVector = moveDirection * moveSpeed * Time.deltaTime;
         if ((explodeLocation - this.transform.position).magnitude < newMoveVector.magnitude) {
             // Explosion -> turn off fuze sound, play explode sound
             if(tExplode == 0) {
                 ObstacleAttributes[] obstacles = (ObstacleAttributes[]) GameObject.FindObjectsOfType(typeof(ObstacleAttributes));
-                Debug.Log(obstacles.Length + " obstacles");
+                //Debug.Log(obstacles.Length + " obstacles");
                 foreach (ObstacleAttributes obstacle in obstacles)
                 {
                     if (obstacle.gameObject == this.gameObject) continue;
                     Vector3 obstaclePos = obstacle.gameObject.transform.position;
                     float dist = Vector3.Distance(obstaclePos, this.gameObject.transform.position);
-                    Debug.Log(dist + " far away from " + obstacle.name);
+                    //Debug.Log(dist + " far away from " + obstacle.name);
                     if (dist < explodeRadius)
                     {
                         Destroy(obstacle.gameObject);

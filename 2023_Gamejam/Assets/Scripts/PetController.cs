@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PetController : MonoBehaviour
 {
-
+    public PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +18,17 @@ public class PetController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "obstacle")
+        if (collision.gameObject.tag == "pickup")
         {
-            Debug.Log("Pet collision detected!");
+            Pickup pickup = collision.gameObject.GetComponent<Pickup>();
+            if(pickup != null && pickup.pickedUp == false)
+            {
+                pickup.pickedUp = true;
+                pickup.pickup();
+                if(pickup.pickupType == Pickup.PickupType.Health) { 
+                    playerController.heal();
+                }
+            }
         }
     }
 }
