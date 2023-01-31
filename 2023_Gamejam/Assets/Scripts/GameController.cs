@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     public Vector3 camPos;
     public float spawnClock = 1;
     public float spawnOffset = 2;
+    public static bool firstPickup = false;
+    public GameObject overlay;
 
     public UIController uiController;
     public InputController inputController;
@@ -81,10 +83,18 @@ public class GameController : MonoBehaviour
             float spawnHealOdds = 0;
             if(health == 1)
             {
-                spawnHealOdds = 0.11f * (score)/20f;
+                spawnHealOdds = 0.51f * (score) / 30f;
+                if (spawnHealOdds > 0.25f)
+                {
+                    spawnHealOdds = 0.25f;
+                }
             }else if(health == 2)
             {
                 spawnHealOdds = 0.06f * (score) / 30f;
+                if (spawnHealOdds > 0.15f)
+                {
+                    spawnHealOdds = 0.15f;
+                }
             }
 
             int numObstacles = GameObject.FindGameObjectsWithTag("obstacle").Length;
@@ -109,6 +119,11 @@ public class GameController : MonoBehaviour
                 Debug.Log("Spawning " + pickupType);
                 GameObject pickup = Instantiate(pickupObject);
                 pickup.GetComponent<Pickup>()?.setType(pickupType);
+                if (!firstPickup)
+                {
+                    enableOverlay();
+                }
+                firstPickup = true;
             }
             yield return new WaitForSeconds(3f);
         }
@@ -135,5 +150,14 @@ public class GameController : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
         Application.Quit();
+    }
+
+    public void enableOverlay()
+    {
+        overlay.SetActive(true);
+        GameObject skyLine = GameObject.Find("SkyLine");
+        skyLine.SetActive(false);
+        Cursor.visible = true;
+        Time.timeScale = 0f;
     }
 }
