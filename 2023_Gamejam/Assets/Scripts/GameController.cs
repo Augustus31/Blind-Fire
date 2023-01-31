@@ -83,17 +83,17 @@ public class GameController : MonoBehaviour
             float spawnHealOdds = 0;
             if(health == 1)
             {
-                spawnHealOdds = 0.51f * (score) / 30f;
-                if (spawnHealOdds > 0.25f)
+                spawnHealOdds = 0.15f * (score) / 30f;
+                if (spawnHealOdds > 0.4f)
                 {
-                    spawnHealOdds = 0.25f;
+                    spawnHealOdds = 0.4f;
                 }
             }else if(health == 2)
             {
-                spawnHealOdds = 0.06f * (score) / 30f;
-                if (spawnHealOdds > 0.15f)
+                spawnHealOdds = 0.08f * (score) / 30f;
+                if (spawnHealOdds > 0.2f)
                 {
-                    spawnHealOdds = 0.15f;
+                    spawnHealOdds = 0.2f;
                 }
             }
 
