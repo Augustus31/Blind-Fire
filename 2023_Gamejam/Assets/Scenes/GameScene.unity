@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1074631845}
-  bombObject: {fileID: 955807094212505200, guid: ffcb587f47cba4083a151c72489f5258, type: 3}
+  nukeObject: {fileID: 421998545038721728, guid: 621fc16794760a14b86c6490410cb660, type: 3}
 --- !u!212 &713791345
 SpriteRenderer:
   m_ObjectHideFlags: 0

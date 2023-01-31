@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToSpawn: 2
-  chanceToSpawn: 0.5
+  chanceToSpawn: 0.9
 --- !u!95 &-1152425398075270483
 Animator:
   serializedVersion: 5

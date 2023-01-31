@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
             float x = score;
             // change these formulas to balance difficulty
             float newSpawnTime = (spawnTime / 5) / (0.5f * x + 1) + (spawnTime * 0.8f);
-            float newSpawnChance = spawnChance * ((x-6) / (x + 10)) + spawnChance;
+            float newSpawnChance = 1.5f*spawnChance * ((x-4) / (x + 10)) + spawnChance;
             Debug.Log(newSpawnTime);
 
             float randomIfSpawn = Random.value;
@@ -81,16 +81,16 @@ public class GameController : MonoBehaviour
             float spawnHealOdds = 0;
             if(health == 1)
             {
-                spawnHealOdds = 0.13f * (score)/50f;
+                spawnHealOdds = 0.1f * (score)/15f;
             }else if(health == 2)
             {
-                spawnHealOdds = 0.08f * (score) / 50f;
+                spawnHealOdds = 0.05f * (score) / 30f;
             }
 
             int numObstacles = GameObject.FindGameObjectsWithTag("obstacle").Length;
             float spawnNukeOdds = (1f - 1f / (numObstacles * 0.2f + 1f)) * 0.2f * score/35f;
 
-            bool spawnHeal = Random.value < spawnHealOdds; 
+            bool spawnHeal = Random.value < spawnHealOdds;
             bool spawnNuke = Random.value < spawnNukeOdds;
             bool spawnPickup = spawnHeal || spawnNuke;
             Pickup.PickupType pickupType = Pickup.PickupType.Health;
@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log("Spawning " + pickupType);
                 GameObject pickup = Instantiate(pickupObject);
-                pickup.GetComponent<Pickup>()?.setType(pickupType); 
+                pickup.GetComponent<Pickup>()?.setType(pickupType);
             }
             yield return new WaitForSeconds(3f);
         }
