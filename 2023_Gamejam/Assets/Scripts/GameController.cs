@@ -81,10 +81,10 @@ public class GameController : MonoBehaviour
             float spawnHealOdds = 0;
             if(health == 1)
             {
-                spawnHealOdds = 0.1f * (score)/50f;
+                spawnHealOdds = 0.13f * (score)/50f;
             }else if(health == 2)
             {
-                spawnHealOdds = 0.05f * (score) / 50f;
+                spawnHealOdds = 0.08f * (score) / 50f;
             }
 
             int numObstacles = GameObject.FindGameObjectsWithTag("obstacle").Length;
