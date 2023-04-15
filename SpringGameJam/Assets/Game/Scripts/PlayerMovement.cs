@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int dashesLeft;
     public bool LDashPrimer;
     public bool RDashPrimer;
+    public bool dashMode;
     public float velocity; //debug
 
     private Rigidbody2D rb;
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         dashesLeft = 1;
         LDashPrimer = false;
         RDashPrimer = false;
+        dashMode = false;
     }
 
     // Update is called once per frame
@@ -72,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         //dashing
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if(dashesLeft > 0)
+            if(dashesLeft > 0 && !grounded)
             {
                 if (!LDashPrimer)
                 {
@@ -81,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    dash(-1);
+                    StartCoroutine(dash(-1));
                     LDashPrimer = false;
                     dashesLeft = 0;
                 }
@@ -99,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    dash(1);
+                    StartCoroutine(dash(1));
                     RDashPrimer = false;
                     dashesLeft--;
                 }
@@ -120,13 +122,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * speed / 15, 0);
-            if (rb.velocity.x < minVel)
+            if (!dashMode)
             {
-                rb.velocity = new Vector2(minVel, rb.velocity.y);
-            }
-            if (rb.velocity.x > maxVel)
-            {
-                rb.velocity = new Vector2(maxVel, rb.velocity.y);
+                if (rb.velocity.x < minVel)
+                {
+                    rb.velocity = new Vector2(minVel, rb.velocity.y);
+                }
+                if (rb.velocity.x > maxVel)
+                {
+                    rb.velocity = new Vector2(maxVel, rb.velocity.y);
+                }
             }
         }
 
@@ -206,4 +211,15 @@ public class PlayerMovement : MonoBehaviour
         LDashPrimer = false;
         RDashPrimer = false;
     }
+
+    public IEnumerator dash(int a)
+    {
+        rb.velocity = new Vector2(25 * a, rb.velocity.y);
+        dashMode = true;
+        yield return new WaitForSeconds(0.3f);
+        dashMode = false;
+        jumpsLeft = 2;
+    }
+
+
 }
