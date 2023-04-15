@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Light/Dark")]
     public bool lightOn = true;
     public SpriteRenderer background;
+    public SpriteRenderer flashLight;
 
     [Header("Shooting")]
     public Transform shootPivot;
@@ -86,12 +87,16 @@ public class PlayerMovement : MonoBehaviour
         {
             lightOn = false;
             background.color = Color.black;
+            flashLight.color = Color.white;
+
         }
         // Turns on light
         else
         {
             lightOn = true;
             background.color = Color.white;
+            flashLight.color = Color.black;
+
         }
     }
 }
