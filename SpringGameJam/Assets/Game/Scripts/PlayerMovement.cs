@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float maxVel;
     public float minVel;
     public int jumpsLeft;
+    public int dashesLeft;
+    public bool LDashPrimer;
+    public bool RDashPrimer;
     public float velocity; //debug
 
     private Rigidbody2D rb;
@@ -36,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
         minVel = -7;
         maxVel = 7;
         jumpsLeft = 2;
+        dashesLeft = 1;
+        LDashPrimer = false;
+        RDashPrimer = false;
     }
 
     // Update is called once per frame
@@ -59,6 +65,43 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             shootScript.Shoot();
+        }
+
+        //dashing
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if(dashesLeft > 0)
+            {
+                if (!LDashPrimer)
+                {
+                    LDashPrimer = true;
+                    StartCoroutine(ResetPrimer());
+                }
+                else
+                {
+                    dash(-1);
+                    LDashPrimer = false;
+                    dashesLeft = 0;
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (dashesLeft > 0)
+            {
+                if (!RDashPrimer)
+                {
+                    RDashPrimer = true;
+                    StartCoroutine(ResetPrimer());
+                }
+                else
+                {
+                    dash(1);
+                    RDashPrimer = false;
+                    dashesLeft--;
+                }
+            }
         }
 
         // Getting Movement & Input
@@ -142,9 +185,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "Platform")
         {
-            if(col.gameObject.transform.position.y < gameObject.transform.position.y - gameObject.GetComponent<BoxCollider2D>().bounds.extents.y)
+            if(col.gameObject.transform.position.y < gameObject.transform.position.y - gameObject.GetComponent<BoxCollider2D>().bounds.extents.y) //modify if box collider changes
             {
                 jumpsLeft = 2;
+                dashesLeft = 1;
             }
         }
     }
@@ -152,5 +196,12 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D col)
     {
         grounded = false;
+    }
+
+    public IEnumerator ResetPrimer() 
+    {
+        yield return new WaitForSeconds(0.5f);
+        LDashPrimer = false;
+        RDashPrimer = false;
     }
 }
