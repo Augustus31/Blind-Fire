@@ -192,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "Platform")
         {
-            if(col.gameObject.transform.position.y < gameObject.transform.position.y - gameObject.GetComponent<BoxCollider2D>().bounds.extents.y) //modify if box collider changes
+            if(col.gameObject.transform.position.y < gameObject.transform.position.y - gameObject.GetComponent<BoxCollider2D>().bounds.extents.y && Mathf.Abs(rb.velocity.y) < 0.05) //modify if box collider changes
             {
                 jumpsLeft = 2;
                 dashesLeft = 1;
