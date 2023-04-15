@@ -34,4 +34,13 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            collision.gameObject.GetComponent<Bullet>().BulletHit();
+            TakeDamage(1);
+        }
+    }
 }
