@@ -12,20 +12,7 @@ public class Shooting : MonoBehaviour
     public Transform bulletSpawn;
     public GameObject bulletObj;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void Shoot(Vector3 mousePos)
+    public void Shoot()
     {
         if (canShoot)
         {
@@ -33,15 +20,9 @@ public class Shooting : MonoBehaviour
             Bullet bullet = Instantiate(bulletObj, bulletSpawn.position, bulletSpawn.rotation).GetComponent<Bullet>();
             bullet.SetBulletSpeed(bulletSpeed);
 
-
-
             // Starts timer
             StartCoroutine(ShootTimer());
-
         }
-
-        // Send a projectile from gun shoot pos to enemy
-        // if proj hits enemy, enemy dies
     }
 
     private IEnumerator ShootTimer()

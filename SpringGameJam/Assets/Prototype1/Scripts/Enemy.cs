@@ -39,7 +39,11 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            collision.gameObject.GetComponent<Bullet>().BulletHit();
+            if (collision.gameObject.GetComponent<Bullet>() != null)
+            {
+                collision.gameObject.GetComponent<Bullet>().BulletHit();
+            }
+
             TakeDamage(1);
         }
     }

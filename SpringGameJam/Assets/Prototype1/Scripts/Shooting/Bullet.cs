@@ -33,9 +33,9 @@ public class Bullet : MonoBehaviour
 
     public void BulletHit()
     {
+        // When the bullet collides w/ something
         bulletSpeed = 0;
         rb.gravityScale = 9.81f * 3;
-        //GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

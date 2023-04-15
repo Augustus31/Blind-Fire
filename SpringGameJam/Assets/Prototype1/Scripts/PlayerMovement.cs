@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         // Shooting
         if (Input.GetMouseButtonDown(0))
         {
-            shootScript.Shoot(mousePos);
+            shootScript.Shoot();
         }
     }
 
