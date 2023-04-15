@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.tag == "platform")
+        if (col.gameObject.tag == "Platform")
         {
             grounded = true;
         }

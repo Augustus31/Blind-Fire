@@ -8,6 +8,7 @@ TagManager:
   - pickup
   - Bullet
   - GameManager
+  - Platform
   layers:
   - Default
   - TransparentFX
