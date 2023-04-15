@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
     public float health;
     public float speed;
     private GameObject player;
-    private float waveOffset;
+
+    // Wave
+    public float waveOffset;
 
 
     // Start is called before the first frame update
