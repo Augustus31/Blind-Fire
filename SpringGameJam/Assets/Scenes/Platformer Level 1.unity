@@ -403,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  waveOffset: 3
 --- !u!1 &328795725
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  waveOffset: 3
 --- !u!61 &511981927
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -877,6 +879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  waveOffset: 3
 --- !u!1 &670391844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  waveOffset: 3
 --- !u!61 &781942717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1627,6 +1631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  waveOffset: 3
 --- !u!61 &1228729578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2494,6 +2499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  waveOffset: 3
 --- !u!61 &1912020006
 BoxCollider2D:
   m_ObjectHideFlags: 0

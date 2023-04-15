@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private GameObject player;
 
     // Wave
-    public float waveOffset;
+    private float waveOffset;
 
 
     // Start is called before the first frame update
@@ -25,12 +25,13 @@ public class Enemy : MonoBehaviour
     {
         // Move to player
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+        // Adds wave
         transform.position += (Vector3.up * Mathf.Sin((5*Time.time) + waveOffset)) * Time.deltaTime;
     }
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("OW");
         health -= damage;
 
         if (health <= 0)
