@@ -41,11 +41,8 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity = rb.velocity.x;
 
-        // Getting Movement & Input
-        Move();
-
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
         {
             Jump();
         }
@@ -61,6 +58,9 @@ public class PlayerMovement : MonoBehaviour
         {
             shootScript.Shoot();
         }
+
+        // Getting Movement & Input
+        Move();
     }
 
     private void FixedUpdate()
@@ -101,8 +101,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x, 5);
+        //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     public void ToggleLight()
