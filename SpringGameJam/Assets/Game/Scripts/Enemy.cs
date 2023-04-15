@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Stats")]
     public float health;
     public float speed;
+    public float playerDetectRange;
 
     private GameObject player;
 
@@ -24,8 +25,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Move to player
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        // Move to player if in range
+        float distance = (player.transform.position - this.transform.position).magnitude;
+        if (distance <= playerDetectRange)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
 
         // Adds wave
         transform.position += (Vector3.up * Mathf.Sin((5*Time.time) + waveOffset)) * Time.deltaTime;

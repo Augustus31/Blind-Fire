@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  playerDetectRange: 8.5
   waveOffset: 0
 --- !u!1 &376083062
 GameObject:
@@ -490,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  playerDetectRange: 8.5
   waveOffset: 0
 --- !u!61 &511981927
 BoxCollider2D:
@@ -695,6 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  playerDetectRange: 8.5
   waveOffset: 0
 --- !u!1 &670391844
 GameObject:
@@ -951,6 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  playerDetectRange: 8.5
   waveOffset: 0
 --- !u!61 &781942717
 BoxCollider2D:
@@ -1551,6 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  playerDetectRange: 8.5
   waveOffset: 0
 --- !u!61 &1228729578
 BoxCollider2D:
@@ -2198,6 +2203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   speed: 1
+  playerDetectRange: 8.5
   waveOffset: 0
 --- !u!61 &1912020006
 BoxCollider2D:
