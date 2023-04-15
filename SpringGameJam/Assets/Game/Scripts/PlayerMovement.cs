@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float speed;
     public float jumpForce;
+    public bool grounded;
+    public float maxVel;
+    public float minVel;
+    public float velocity; //debug
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -25,13 +29,18 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent <Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         shootScript = GetComponent<Shooting>();
+        grounded = true;
+        minVel = -7;
+        maxVel = 7;
     }
 
     // Update is called once per frame
     void Update()
     {
+        velocity = rb.velocity.x;
+
         // Getting Movement & Input
         Move();
 
@@ -57,7 +66,23 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Physics horizontal movement
-        rb.velocity = moveInput;
+        if (grounded)
+        {
+            rb.velocity = moveInput;
+        }
+        else
+        {
+            rb.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * speed / 15, 0);
+            if (rb.velocity.x < minVel)
+            {
+                rb.velocity = new Vector2(minVel, rb.velocity.y);
+            }
+            if (rb.velocity.x > maxVel)
+            {
+                rb.velocity = new Vector2(maxVel, rb.velocity.y);
+            }
+        }
+
     }
 
     public void Move()
@@ -88,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
             lightOn = false;
             background.color = Color.black;
             flashLight.color = Color.white;
-
         }
         // Turns on light
         else
@@ -96,7 +120,19 @@ public class PlayerMovement : MonoBehaviour
             lightOn = true;
             background.color = Color.white;
             flashLight.color = Color.black;
-
         }
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "platform")
+        {
+            grounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        grounded = false;
     }
 }
