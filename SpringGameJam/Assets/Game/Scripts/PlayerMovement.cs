@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded;
     public float maxVel;
     public float minVel;
+    public int jumpsLeft;
     public float velocity; //debug
 
     private Rigidbody2D rb;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = true;
         minVel = -7;
         maxVel = 7;
+        jumpsLeft = 2;
     }
 
     // Update is called once per frame
@@ -101,8 +103,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 5);
-        //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        if(jumpsLeft > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpsLeft--;
+        }
+        
     }
 
     public void ToggleLight()
@@ -128,6 +135,17 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "Platform")
         {
             grounded = true;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Platform")
+        {
+            if(col.gameObject.transform.position.y < gameObject.transform.position.y - gameObject.GetComponent<BoxCollider2D>().bounds.extents.y)
+            {
+                jumpsLeft = 2;
+            }
         }
     }
 

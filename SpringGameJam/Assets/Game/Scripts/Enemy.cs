@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
         waveOffset = Random.Range(-3.14f,3.14f);
 
         player = GameObject.FindGameObjectWithTag("Player");
+        playerDetectRange = 8.5f;
     }
 
     void Update()
