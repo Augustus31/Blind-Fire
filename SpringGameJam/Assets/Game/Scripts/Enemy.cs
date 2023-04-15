@@ -7,12 +7,14 @@ public class Enemy : MonoBehaviour
     public float health;
     public float speed;
     private GameObject player;
-    
+    private float waveOffset;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        waveOffset = Random.Range(-3.14f,3.14f);
+
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
     {
         // Move to player
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        transform.position += (Vector3.up * Mathf.Sin((5*Time.time) + waveOffset)) * Time.deltaTime;
     }
 
     public void TakeDamage(float damage)
