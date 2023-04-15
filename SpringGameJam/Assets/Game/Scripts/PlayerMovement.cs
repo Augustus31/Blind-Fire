@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Light/Dark")]
     public bool lightOn = true;
-    public SpriteRenderer background;
+    public Color backgroundCol;
+    public Image background;
     public SpriteRenderer flashLight;
 
     [Header("Shooting")]
@@ -168,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             lightOn = true;
-            background.color = Color.white;
+            background.color = backgroundCol;
             flashLight.color = Color.black;
         }
     }
