@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public Image background;
     public SpriteRenderer flashLight;
 
+    private GameObject[] ghosts;
+    private GameObject[] platforms;
+
     [Header("Shooting")]
     public Transform shootPivot;
     private Vector3 mousePos;
@@ -46,6 +49,16 @@ public class PlayerMovement : MonoBehaviour
         LDashPrimer = false;
         RDashPrimer = false;
         dashMode = false;
+
+        // Getting all scene ghosts and platforms
+        ghosts = GameObject.FindGameObjectsWithTag("Enemy");
+        platforms = GameObject.FindGameObjectsWithTag("Platform");
+
+        // Makes all ghost visible 
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -164,19 +177,42 @@ public class PlayerMovement : MonoBehaviour
 
     public void ToggleLight()
     {
+        // Remakes array in case some ghosts were shot
+        ghosts = GameObject.FindGameObjectsWithTag("Enemy");
+
         // Turns off light
         if (lightOn)
         {
             lightOn = false;
             background.color = Color.black;
             flashLight.color = Color.white;
+
+            // Makes all ghost visible and platforms invis
+            for (int i = 0; i < ghosts.Length; i++)
+            {
+                ghosts[i].GetComponent<SpriteRenderer>().enabled = true;
+            }
+            for (int i = 0; i < platforms.Length; i++)
+            {
+                platforms[i].GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         // Turns on light
         else
         {
             lightOn = true;
-            background.color = backgroundCol;
+            background.color = Color.white;
             flashLight.color = Color.black;
+
+            // Makes all ghost invis and platforms visible
+            for (int i = 0; i < ghosts.Length; i++)
+            {
+                ghosts[i].GetComponent<SpriteRenderer>().enabled = false;
+            }
+            for (int i = 0; i < platforms.Length; i++)
+            {
+                platforms[i].GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
 
