@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     public float health;
     public float speed;
+
     private GameObject player;
 
-    // Wave
+    [Header("Enemy Movement")]
+    [SerializeField]
     private float waveOffset;
 
-
-    // Start is called before the first frame update
     void Start()
     {
+        // Sets random pattern
         waveOffset = Random.Range(-3.14f,3.14f);
 
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Move to player
@@ -34,15 +35,16 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
 
+        // Die
         if (health <= 0)
         {
-            // Die
             Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Bullet Collision
         if (collision.gameObject.CompareTag("Bullet"))
         {
             if (collision.gameObject.GetComponent<Bullet>() != null)
@@ -51,6 +53,11 @@ public class Enemy : MonoBehaviour
             }
 
             TakeDamage(1);
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            // Restarts scene
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<Menu>().Restart();
         }
     }
 }
