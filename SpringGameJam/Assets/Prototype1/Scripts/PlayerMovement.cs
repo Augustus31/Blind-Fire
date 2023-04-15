@@ -18,12 +18,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Shooting")]
     public Transform shootPivot;
     private Vector3 mousePos;
+    private Shooting shootScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent <Rigidbody2D>();
+        shootScript = GetComponent<Shooting>();
     }
 
     // Update is called once per frame
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         // Shooting
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            shootScript.Shoot(mousePos);
         }
     }
 
@@ -90,22 +92,6 @@ public class PlayerMovement : MonoBehaviour
         {
             lightOn = true;
             background.color = Color.white;
-        }
-    }
-
-
-    public void Shoot() {
-        Collider2D[] cols = Physics2D.OverlapPointAll(mousePos);
-        if (cols.Length != 0)
-        {
-            foreach (Collider2D col in cols)
-            {
-                Enemy enemyScript = col.GetComponent<Enemy>();
-                if (enemyScript != null)
-                {
-                    enemyScript.TakeDamage(1);
-                }
-            }
         }
     }
 }

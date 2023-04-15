@@ -15,4 +15,22 @@ public class Shooting : MonoBehaviour
     {
         
     }
+
+    public void Shoot(Vector3 mousePos)
+    {
+        Collider2D[] cols = Physics2D.OverlapPointAll(mousePos);
+        if (cols.Length != 0)
+        {
+            foreach (Collider2D col in cols)
+            {
+                Enemy enemyScript = col.GetComponent<Enemy>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(1);
+                }
+            }
+        }
+    }
+
+
 }
