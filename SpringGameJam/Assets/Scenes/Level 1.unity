@@ -1317,6 +1317,10 @@ MonoBehaviour:
   maxVel: 0
   minVel: 0
   jumpsLeft: 0
+  dashesLeft: 0
+  LDashPrimer: 0
+  RDashPrimer: 0
+  dashMode: 0
   velocity: 0
   lightOn: 1
   backgroundCol: {r: 0.7989943, g: 0.82490855, b: 0.8962264, a: 0}
@@ -1335,8 +1339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3112a3cda18e5c4478ff524e2334e0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 7.5
-  bulletCooldown: 0.25
+  bulletSpeed: 10
+  bulletCooldown: 0.5
   canShoot: 1
   bulletSpawn: {fileID: 1135257443}
   bulletObj: {fileID: 4942664181365252038, guid: 9232d70cd5cd435478f48c5402baf370, type: 3}
@@ -1612,7 +1616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776639427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3569982, y: 1.0620743, z: -8.301064}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
