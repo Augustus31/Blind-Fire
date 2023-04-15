@@ -58,10 +58,33 @@ public class LightDarkMovement : MonoBehaviour
         {
             background.color = Color.black;
         }
+
+        // Shooting
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+
+
     }
 
     private void FixedUpdate()
     {
         rb.velocity = moveInput;
+    }
+
+    public void Shoot() {
+        Collider2D[] cols = Physics2D.OverlapPointAll(mousePos);
+        if (cols.Length != 0)
+        {
+            foreach (Collider2D col in cols)
+            {
+                Enemy enemyScript = col.GetComponent<Enemy>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(1);
+                }
+            }
+        }
     }
 }
