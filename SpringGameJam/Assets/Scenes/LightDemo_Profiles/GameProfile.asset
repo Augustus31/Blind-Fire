@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 7.5
+    value: 10
   threshold:
     overrideState: 1
     value: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Main Camera Profile
+  m_Name: GameProfile
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -6412998050653175254}
@@ -120,16 +120,16 @@ MonoBehaviour:
     value: -5
   tint:
     overrideState: 1
-    value: 5
+    value: 6
   colorFilter:
-    overrideState: 0
+    overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     overrideState: 1
     value: 0
   saturation:
     overrideState: 1
-    value: 50
+    value: 85
   brightness:
     overrideState: 1
     value: 10
@@ -138,16 +138,16 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 10
+    value: 15
   mixerRedOutRedIn:
     overrideState: 1
-    value: 93
+    value: 88
   mixerRedOutGreenIn:
     overrideState: 1
     value: 14
   mixerRedOutBlueIn:
     overrideState: 1
-    value: 2
+    value: 4
   mixerGreenOutRedIn:
     overrideState: 0
     value: 0
