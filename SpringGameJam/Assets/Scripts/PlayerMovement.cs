@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         // Physics horizontal movement
         if (grounded)
         {
-            rb.velocity = moveInput;
+            rb.velocity = new Vector2(moveInput.x, rb.velocity.y);
         }
         else
         {
