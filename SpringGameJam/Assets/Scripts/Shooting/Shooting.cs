@@ -20,6 +20,9 @@ public class Shooting : MonoBehaviour
             Bullet bullet = Instantiate(bulletObj, bulletSpawn.position, bulletSpawn.rotation).GetComponent<Bullet>();
             bullet.SetBulletSpeed(bulletSpeed);
 
+            // Audio
+            AudioManager.Instance.PlayAudio("GunShot");
+
             // Starts timer
             StartCoroutine(ShootTimer());
         }

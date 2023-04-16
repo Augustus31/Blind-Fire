@@ -7,25 +7,34 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float speed;
+
+    // Jumping
     public float jumpForce;
+    public int jumpsLeft;
     public bool grounded;
+
+    // Momentum
     public float maxVel;
     public float minVel;
-    public int jumpsLeft;
+    public float velocity; //debug
+
+    // Dashes
     public int dashesLeft;
     public bool LDashPrimer;
     public bool RDashPrimer;
     public bool dashMode;
-    public float velocity; //debug
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
     [Header("Light/Dark")]
     public bool lightOn = true;
-    public Color backgroundCol;
+    //public Color backgroundCol;
     public Image background;
     public SpriteRenderer flashLight;
+    public float toggleCooldown = 2f;
+    public bool canToggle = true;
+    //public TMPro cooldownText;
 
     private GameObject[] ghosts;
     private GameObject[] platforms;
@@ -150,49 +159,69 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpsLeft--;
+
+            // Audio
+            AudioManager.Instance.PlayAudio("Jump");
         }
         
     }
 
     public void ToggleLight()
     {
-        // Remakes array in case some ghosts were shot
-        ghosts = GameObject.FindGameObjectsWithTag("Enemy");
-
-        // Turns off light
-        if (lightOn)
+        if (canToggle)
         {
-            lightOn = false;
-            background.color = Color.black;
-            flashLight.color = Color.white;
+            // Remakes array in case some ghosts were shot
+            ghosts = GameObject.FindGameObjectsWithTag("Enemy");
 
-            // Makes all ghost visible and platforms invis
-            for (int i = 0; i < ghosts.Length; i++)
+            // Turns off light
+            if (lightOn)
             {
-                ghosts[i].GetComponent<SpriteRenderer>().enabled = true;
-            }
-            for (int i = 0; i < platforms.Length; i++)
-            {
-                platforms[i].GetComponent<SpriteRenderer>().enabled = false;
-            }
-        }
-        // Turns on light
-        else
-        {
-            lightOn = true;
-            background.color = Color.white;
-            flashLight.color = Color.black;
+                lightOn = false;
+                background.color = Color.black;
+                flashLight.color = Color.white;
 
-            // Makes all ghost invis and platforms visible
-            for (int i = 0; i < ghosts.Length; i++)
-            {
-                ghosts[i].GetComponent<SpriteRenderer>().enabled = false;
+                // Makes all ghost visible and platforms invis
+                for (int i = 0; i < ghosts.Length; i++)
+                {
+                    ghosts[i].GetComponent<SpriteRenderer>().enabled = true;
+                }
+                for (int i = 0; i < platforms.Length; i++)
+                {
+                    platforms[i].GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
-            for (int i = 0; i < platforms.Length; i++)
+            // Turns on light
+            else
             {
-                platforms[i].GetComponent<SpriteRenderer>().enabled = true;
+                lightOn = true;
+                background.color = Color.white;
+                flashLight.color = Color.black;
+
+                // Makes all ghost invis and platforms visible
+                for (int i = 0; i < ghosts.Length; i++)
+                {
+                    ghosts[i].GetComponent<SpriteRenderer>().enabled = false;
+                }
+                for (int i = 0; i < platforms.Length; i++)
+                {
+                    platforms[i].GetComponent<SpriteRenderer>().enabled = true;
+                }
             }
+
+            // Audio
+            AudioManager.Instance.PlayAudio("LightToggle");
+
+            // Starts timer
+            StartCoroutine(LightTimer());
         }
+
+    }
+
+    private IEnumerator LightTimer()
+    {
+        canToggle = false;
+        yield return new WaitForSeconds(toggleCooldown);
+        canToggle = true;
     }
 
     void OnCollisionStay2D(Collision2D col)

@@ -44,6 +44,8 @@ public class Enemy : MonoBehaviour
         // Die
         if (health <= 0)
         {
+            // Death Audio
+            AudioManager.Instance.PlayAudio("GhostDie");
             Destroy(gameObject);
         }
     }
@@ -53,10 +55,13 @@ public class Enemy : MonoBehaviour
         // Bullet Collision
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            /*
             if (collision.gameObject.GetComponent<Bullet>() != null)
             {
                 collision.gameObject.GetComponent<Bullet>().BulletHit();
-            }
+            }*/
+
+            Destroy(collision.gameObject);
 
             TakeDamage(1);
         }
