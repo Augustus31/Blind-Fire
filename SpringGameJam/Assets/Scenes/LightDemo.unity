@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38489947, g: 0.39734724, b: 0.38356566, a: 1}
+  m_IndirectSpecularColor: {r: 0.38489923, g: 0.397347, b: 0.3835653, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3004,6 +3004,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &1921774559 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2913815316734391904, guid: ca5db96f120989845b6e86bf88085365, type: 3}
+  m_PrefabInstance: {fileID: 2913815316530441844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961999636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,6 +3751,14 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 2132950026}
+    - target: {fileID: 2913815316030484574, guid: ca5db96f120989845b6e86bf88085365, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 1921774558}
+    - target: {fileID: 2913815316030484574, guid: ca5db96f120989845b6e86bf88085365, type: 3}
+      propertyPath: playerSprite
+      value: 
+      objectReference: {fileID: 1921774559}
     - target: {fileID: 2913815316734391904, guid: ca5db96f120989845b6e86bf88085365, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

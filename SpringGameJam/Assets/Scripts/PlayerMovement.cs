@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePos;
     private Shooting shootScript;
 
+    [Header("Animation")]
+    public Animator playerAnim;
+    public SpriteRenderer playerSprite;
+
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +121,17 @@ public class PlayerMovement : MonoBehaviour
 
         // Getting Movement & Input
         Move();
+
+        // Animation
+        playerAnim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            playerSprite.flipX = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) 
+        {
+            playerSprite.flipX = false;
+        }
     }
 
     private void FixedUpdate()
