@@ -81,3 +81,10 @@ MonoBehaviour:
     pitch: 0.3
     loop: 0
     source: {fileID: 0}
+  - clipName: BgMusic
+    clip: {fileID: 8300000, guid: d3e1dbe1ebf0c974c8fb60737982ce23, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  startMusic: 0

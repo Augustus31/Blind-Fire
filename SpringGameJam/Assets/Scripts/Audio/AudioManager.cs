@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -33,12 +33,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
 
-        startMusic = false;
-        if (!startMusic)
-        {
-            SceneManager.LoadScene("Music", LoadSceneMode.Additive);
-            startMusic = true;
-        }
+        PlayAudio("BgMusic");
     }
     
     public void PlayAudio(string name)
