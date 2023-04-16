@@ -20,6 +20,10 @@ public class NextlevelTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            // Audio
+            AudioManager.Instance.PlayAudio("LevelComplete");
+
+            // Loads Next Scene
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<Menu>().NextLevel();
         }
     }

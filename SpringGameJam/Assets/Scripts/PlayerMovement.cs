@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float speed;
 
-    // Jumping
+    [Header("Jumping")]
     public float jumpForce;
     public int jumpsLeft;
     public bool grounded;
+    public Transform feetPos;
+    public ParticleSystem jumpParticles;
 
     // Momentum
     public float maxVel;
@@ -160,6 +162,9 @@ public class PlayerMovement : MonoBehaviour
 
             // Audio
             AudioManager.Instance.PlayAudio("Jump");
+
+            // Particles
+            Instantiate(jumpParticles, feetPos.transform.position, jumpParticles.transform.rotation);
         }
         
     }

@@ -9,10 +9,14 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float playerDetectRange;
 
+    [Header("Sound")]
+    public float noiseRange = 1f;
+    private bool playedSound = false;
+
     private GameObject player;
 
     [Header("Enemy Movement")]
-    [SerializeField]
+    public float waveMagnitude;
     private float waveOffset;
 
     [Header("Particle")]
@@ -21,7 +25,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // Sets random pattern
-        waveOffset = Random.Range(-3.14f,3.14f);
+        waveOffset = Random.Range(-waveMagnitude, waveMagnitude);
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerDetectRange = 8.5f;
@@ -34,6 +38,13 @@ public class Enemy : MonoBehaviour
         if (distance <= playerDetectRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+
+        // Plays Close Audio Que
+        if (distance <= noiseRange && !playedSound)
+        {
+            AudioManager.Instance.PlayAudio("GhostNear");
+            playedSound = true;
         }
 
         // Adds wave
