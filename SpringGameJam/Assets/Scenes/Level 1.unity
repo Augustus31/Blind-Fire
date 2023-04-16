@@ -1486,11 +1486,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - clipName: LightToggle
-    clip: {fileID: 8300000, guid: c1417812ba394594d8b81b5ac8725811, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
 --- !u!1001 &791901808
 PrefabInstance:
   m_ObjectHideFlags: 0
