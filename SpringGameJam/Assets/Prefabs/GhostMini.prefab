@@ -127,6 +127,6 @@ MonoBehaviour:
   health: 1
   speed: 3.75
   playerDetectRange: 10
-  noiseRange: 3
+  noiseRange: 5
   waveMagnitude: 3
   deathParticles: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
