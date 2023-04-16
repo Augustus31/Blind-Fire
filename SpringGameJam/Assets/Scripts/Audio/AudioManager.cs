@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public Sound[] audioSources;
+    public bool startMusic;
 
     private void Awake()
     {
@@ -31,7 +33,12 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
 
-        PlayAudio("BgMusic");
+        startMusic = false;
+        if (!startMusic)
+        {
+            SceneManager.LoadScene("Music", LoadSceneMode.Additive);
+            startMusic = true;
+        }
     }
     
     public void PlayAudio(string name)
