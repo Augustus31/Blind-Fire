@@ -10,29 +10,34 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float jumpForce;
-    public int jumpsLeft;
-    public bool grounded;
     public Transform feetPos;
     public ParticleSystem jumpParticles;
+
+    private int jumpsLeft;
+    private bool grounded;
 
     // Momentum
     public float maxVel;
     public float minVel;
-    public float velocity; //debug
+    [SerializeField]
+    private float velocity; //debug
 
     // Dashes
-    public int dashesLeft;
-    public bool dashMode;
+    public float dashStrength = 15f;
 
+    private bool dashMode;
+    private int dashesLeft;
+
+    //
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
     [Header("Light/Dark")]
     public bool lightOn = true;
-    //public Color backgroundCol;
     public Image background;
     public SpriteRenderer flashLight;
     public float toggleCooldown = 2f;
+    [HideInInspector]
     public bool canToggle = true;
     //public TMPro cooldownText;
 
@@ -92,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Dashing
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.LeftShift))
         {
             if(dashesLeft > 0 && !grounded)
             {
@@ -261,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator dash(int a)
     {
-        rb.velocity = new Vector2(25 * a, rb.velocity.y);
+        rb.velocity = new Vector2(dashStrength * a, rb.velocity.y);
         dashMode = true;
         yield return new WaitForSeconds(0.3f);
         dashMode = false;

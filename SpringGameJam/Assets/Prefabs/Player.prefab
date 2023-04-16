@@ -163,9 +163,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008516312, y: -0.3095945}
+  m_Offset: {x: 0.008516312, y: -0.3391713}
   serializedVersion: 2
-  m_Radius: 0.29406834
+  m_Radius: 0.3236451
 --- !u!50 &2913815316030484572
 Rigidbody2D:
   serializedVersion: 4
@@ -201,15 +201,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 6
-  jumpsLeft: 0
-  grounded: 0
   feetPos: {fileID: 1318561515}
   jumpParticles: {fileID: 1418989366552776179, guid: e00057e3460e43c429a36307a7865063, type: 3}
   maxVel: 0
   minVel: 0
   velocity: 0
-  dashesLeft: 0
-  dashMode: 0
+  dashStrength: 12.5
   lightOn: 1
   background: {fileID: 0}
   flashLight: {fileID: 2913815316250579341}

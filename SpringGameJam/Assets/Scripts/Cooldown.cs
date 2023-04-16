@@ -7,6 +7,7 @@ public class Cooldown : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro;
     public PlayerMovement counter;
+
     // Start is called before the first frame update
     void Start()
     {
