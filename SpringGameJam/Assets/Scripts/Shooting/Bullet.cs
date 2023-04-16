@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(this, 3);
+        //Destroy(this, 3);
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
         // When the bullet collides w/ something
         bulletSpeed = 0;
         rb.gravityScale = 9.81f * 3;
+        GameObject.Destroy(gameObject);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

@@ -20,8 +20,6 @@ public class PlayerMovement : MonoBehaviour
 
     // Dashes
     public int dashesLeft;
-    public bool LDashPrimer;
-    public bool RDashPrimer;
     public bool dashMode;
 
     private Rigidbody2D rb;
