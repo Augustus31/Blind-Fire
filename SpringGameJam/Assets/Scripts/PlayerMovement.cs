@@ -46,8 +46,6 @@ public class PlayerMovement : MonoBehaviour
         maxVel = 7;
         jumpsLeft = 2;
         dashesLeft = 1;
-        LDashPrimer = false;
-        RDashPrimer = false;
         dashMode = false;
 
         // Getting all scene ghosts and platforms
@@ -84,39 +82,20 @@ public class PlayerMovement : MonoBehaviour
             shootScript.Shoot();
         }
 
-        //dashing
-        if (Input.GetKeyDown(KeyCode.A))
+        // Dashing
+        if (Input.GetMouseButtonDown(1))
         {
             if(dashesLeft > 0 && !grounded)
             {
-                if (!LDashPrimer)
-                {
-                    LDashPrimer = true;
-                    StartCoroutine(ResetPrimer());
-                }
-                else
-                {
-                    StartCoroutine(dash(-1));
-                    LDashPrimer = false;
-                    dashesLeft = 0;
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (dashesLeft > 0)
-            {
-                if (!RDashPrimer)
-                {
-                    RDashPrimer = true;
-                    StartCoroutine(ResetPrimer());
-                }
-                else
+                if (rb.velocity.x >= 0)
                 {
                     StartCoroutine(dash(1));
-                    RDashPrimer = false;
-                    dashesLeft--;
+                    dashesLeft = 0;
+                }
+                else if (rb.velocity.x < 0)
+                {
+                    StartCoroutine(dash(-1));
+                    dashesLeft = 0;
                 }
             }
         }
@@ -241,12 +220,12 @@ public class PlayerMovement : MonoBehaviour
         grounded = false;
     }
 
-    public IEnumerator ResetPrimer() 
+    /*public IEnumerator ResetPrimer() 
     {
         yield return new WaitForSeconds(0.5f);
         LDashPrimer = false;
         RDashPrimer = false;
-    }
+    }*/
 
     public IEnumerator dash(int a)
     {
