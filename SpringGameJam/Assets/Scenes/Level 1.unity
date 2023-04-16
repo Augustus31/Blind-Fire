@@ -3144,6 +3144,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7616196028274648832, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
+      propertyPath: audioSources.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616196028274648832, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
+      propertyPath: audioSources.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d3e1dbe1ebf0c974c8fb60737982ce23, type: 3}
+    - target: {fileID: 7616196028274648832, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
+      propertyPath: audioSources.Array.data[6].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616196028274648832, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
+      propertyPath: audioSources.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616196028274648832, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
+      propertyPath: audioSources.Array.data[6].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616196028274648832, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
+      propertyPath: audioSources.Array.data[6].clipName
+      value: BgMusic
+      objectReference: {fileID: 0}
     - target: {fileID: 7616196028274648833, guid: 0cb6a247a5d5844428b29201d124295a, type: 3}
       propertyPath: m_RootOrder
       value: 1

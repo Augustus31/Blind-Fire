@@ -49,29 +49,41 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bfdb2a4d1d1b6db408bbfe68df017a82, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - clipName: GhostDie
     clip: {fileID: 8300000, guid: 9fae323c3eeb68943b2022b06215e56c, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - clipName: GunShot
     clip: {fileID: 8300000, guid: edbff4367a558ea45b3c64096c1fe049, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - clipName: LightToggle
     clip: {fileID: 8300000, guid: c1417812ba394594d8b81b5ac8725811, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - clipName: LevelComplete
     clip: {fileID: 8300000, guid: d48bdd2e64994eb4ba60c0cce2fce443, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - clipName: GhostNear
     clip: {fileID: 8300000, guid: fb73718a17387584eb4067357dfca0d5, type: 3}
     volume: 0.5
     pitch: 0.3
+    loop: 0
+    source: {fileID: 0}
+  - clipName: BgMusic
+    clip: {fileID: 8300000, guid: d3e1dbe1ebf0c974c8fb60737982ce23, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
