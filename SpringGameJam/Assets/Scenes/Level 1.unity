@@ -243,7 +243,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &120439046 stripped
@@ -820,6 +824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!1 &605199417
@@ -1495,7 +1503,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -1553,6 +1561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &791901809 stripped
@@ -2001,7 +2013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -2059,6 +2071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &852080595 stripped
@@ -2297,7 +2313,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -2355,6 +2371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &964158857 stripped
@@ -2490,7 +2510,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -2548,6 +2568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &1182769748 stripped
@@ -3431,7 +3455,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3477,6 +3501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &1675036688 stripped
@@ -3493,7 +3521,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -3551,6 +3579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &1703606873 stripped
@@ -4215,7 +4247,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8189529145561006256, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -4273,6 +4305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8189529145561006287, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 4688763075345598372, guid: 03040202fcf0bd1438716dc40b148add, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd04c273646a1547bd2c46f665d96ce, type: 3}
 --- !u!4 &2025231323 stripped

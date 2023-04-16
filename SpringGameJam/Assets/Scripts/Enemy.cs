@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float waveOffset;
 
+    [Header("Particle")]
+    public ParticleSystem deathParticles;
+
     void Start()
     {
         // Sets random pattern
@@ -46,6 +49,11 @@ public class Enemy : MonoBehaviour
         {
             // Death Audio
             AudioManager.Instance.PlayAudio("GhostDie");
+
+            // Particles
+            Instantiate(deathParticles, transform.position, deathParticles.transform.rotation);
+
+            // Die
             Destroy(gameObject);
         }
     }
