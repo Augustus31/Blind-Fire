@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //some setup
         rb = GetComponent<Rigidbody2D>();
         shootScript = GetComponent<Shooting>();
         grounded = true;
@@ -123,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
         // Physics horizontal movement
         if (grounded)
         {
-            rb.velocity = new Vector2(moveInput.x, rb.velocity.y);
+            rb.velocity = moveInput;
         }
         else
         {
