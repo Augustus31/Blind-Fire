@@ -310,6 +310,7 @@ MonoBehaviour:
   shootPivot: {fileID: 2913815317194988802}
   playerAnim: {fileID: 1921774558}
   playerSprite: {fileID: 2913815316734391904}
+  dashParticles: {fileID: 1418989366552776179, guid: 13b3036ff17029c47a14ef0243498893, type: 3}
 --- !u!114 &2913815316030484575
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4874,7 +4874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Double Jump & Dash Acrosss  ->
+  m_text: 'Double Jump & Dash Across  ->
 
 '
   m_isRightToLeft: 0

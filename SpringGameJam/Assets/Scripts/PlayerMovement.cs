@@ -53,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator playerAnim;
     public SpriteRenderer playerSprite;
 
+    [Header("Particle")]
+    public ParticleSystem dashParticles;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,11 +111,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (rb.velocity.x >= 0)
                 {
+                    Instantiate(dashParticles, transform.position, transform.rotation);
                     StartCoroutine(dash(1));
                     dashesLeft = 0;
                 }
                 else if (rb.velocity.x < 0)
                 {
+                    Instantiate(dashParticles, transform.position, transform.rotation);
                     StartCoroutine(dash(-1));
                     dashesLeft = 0;
                 }

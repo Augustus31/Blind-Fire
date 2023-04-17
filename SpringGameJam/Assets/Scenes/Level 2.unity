@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 1153560317}
+    - target: {fileID: 2913815316030484574, guid: ca5db96f120989845b6e86bf88085365, type: 3}
+      propertyPath: dashParticles
+      value: 
+      objectReference: {fileID: 1418989366552776179, guid: 13b3036ff17029c47a14ef0243498893, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5db96f120989845b6e86bf88085365, type: 3}
 --- !u!20 &157374637 stripped
@@ -1099,17 +1103,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostMini (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 26752999196578328, guid: aad7306fcfba5204e89b0bd29f287a09, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 26753000716835529, guid: aad7306fcfba5204e89b0bd29f287a09, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 26753000716835529, guid: aad7306fcfba5204e89b0bd29f287a09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.6
+      value: 10.02
       objectReference: {fileID: 0}
     - target: {fileID: 26753000716835529, guid: aad7306fcfba5204e89b0bd29f287a09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.03
+      value: -13.06
       objectReference: {fileID: 0}
     - target: {fileID: 26753000716835529, guid: aad7306fcfba5204e89b0bd29f287a09, type: 3}
       propertyPath: m_LocalPosition.z
